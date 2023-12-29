@@ -1,0 +1,73 @@
+<html>
+    <style>
+        .container {
+            border:  1px solid red;
+            min-height: 100px;
+        }
+    </style>
+    <body>
+        <button id="btn">点我触发事件</button>
+        <button id="btn2">点我取消事件</button>
+        <button id="btn3">清屏</button>
+        <ul class="container">
+        </ul>
+    </body>
+    <script>
+        let eventArr = []; //异步事件队列
+        let isRunning = false; // 是否正在执行异步事件
+        let timerArr = []; // 定时器的数组 用来清除定时器用
+
+        let p = function () {
+            return new Promise((resolve, reject) => {
+                let t = setTimeout(() => {
+                    let d = new Date()
+                    let node = document.createElement('li');
+                    node.innerHTML = `${eventArr.length + 1} - ${d}`
+                    document.querySelector('.container').appendChild(node);
+                    resolve(d);
+                }, 2000);
+                timerArr.push(t);
+            });
+        }
+
+        document.querySelector('#btn').addEventListener('click', async function(){
+            eventArr.push(p);
+            if (!isRunning) {
+                runner();
+            }
+        });
+
+        // 取消事件
+        document.querySelector('#btn2').addEventListener('click', async function(){
+            eventArr = [];
+            timerArr.forEach(item => {
+                clearTimeout(item);
+            });
+            timerArr = [];
+            isRunning = false;
+        });
+
+        // 清屏
+        document.querySelector('#btn3').addEventListener('click', async function(){
+            document.querySelector('.container').innerHTML = ''
+        });
+
+        async function runner (){
+            if (eventArr.length) {
+                isRunning = true;
+                let temp = eventArr.shift();
+                await temp();
+                timerArr.shift(); // 执行完再去掉
+                if (eventArr.length) {
+                    runner();
+                } else {
+                    isRunning = false;
+                    return;
+                }
+            } else {
+                isRunning = false;
+                return;
+            }
+        }
+    </script>
+</html>

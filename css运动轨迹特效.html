@@ -1,0 +1,564 @@
+<html>
+    <style>
+        .ctn {
+            position: relative;
+            border: 1px solid black;
+            border-radius: 4px;
+            width: 660px;
+            margin:  0 auto;
+            padding: 40px;
+        }
+        .clear::after {
+            display: block;
+            content: '';
+            clear: both;
+            width: 0;
+            height: 0;
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: left;
+        }
+        .radios50 {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        .rightCtn .subItem {
+            float: left;
+            margin-right: 30px;
+            margin-bottom: 20px;
+        }
+        .rightCtn {
+            width: 520px;
+            margin-left: 10px;
+        }
+        .leftCtn {
+            margin-top: 63px;
+            margin-right: 20px;
+        }
+
+
+    .fireworksCtn {
+        display: block;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        left: 534px;
+        top: 142.5px;
+        overflow: hidden;
+        transform: translate(-50%, -50%);
+        z-index: 9;
+    }
+    .fireworksCtn .innerCtn {
+        left: 50%;
+        top: 50%;
+    }
+
+
+    .cpContainer {
+        display: none;
+        position: absolute;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        z-index: 1000;
+        offset-rotate: 0deg;
+    }
+    .cpContainer.active {
+        animation: move 1500ms ease;
+        animation-fill-mode: forwards;
+        display: block!important;
+    }
+    .cpContainer .cpImg {
+        width: 50px;
+        height: 50px;
+    }
+
+    @keyframes move {
+        0% {
+            display: block;
+            transform: scale(1);
+        }
+        15% {
+            transform: scale(1.2);
+        }
+        20% {
+            transform: scale(1);
+            offset-distance: 0%;
+        }
+        98% {
+            offset-distance: 100%;
+        }
+        100% {
+            offset-distance: 100%;
+            display: none;
+        }
+    }
+    
+    .subItem[data-aposition="2"] .cpContainer{
+        left: 89px;
+        top: 180px;
+    }
+
+    .subItem[data-aposition="3"] .cpContainer{
+        left: 220px;
+        top: 120px;
+    }
+    .subItem[data-aposition="4"] .cpContainer{
+        left: 350px;
+        top: 120px;
+    }
+    .subItem[data-aposition="5"] .cpContainer{
+        left: 480px;
+        top: 120px;
+    }
+    .subItem[data-aposition="6"] .cpContainer{
+        left: 610px;
+        top: 120px;
+    }
+
+    .subItem[data-aposition="7"] .cpContainer{
+        left: 220px;
+        top: 240px;
+    }
+    .subItem[data-aposition="8"] .cpContainer{
+        left: 350px;
+        top: 240px;
+    }
+    .subItem[data-aposition="9"] .cpContainer{
+        left: 480px;
+        top: 240px;
+    }
+    .subItem[data-aposition="10"] .cpContainer{
+        left: 610px;
+        top: 240px;
+    }
+    .testCtn {
+        width: 400px;
+        margin: 40px auto;
+    }
+
+    .emptyCtn {
+        position: relative;
+        float: left;
+    }
+    .emptyCtn .fireworksCtn {
+        position: absolute;
+        left: 50px;
+        top: 50px;
+    }
+
+    </style>
+    <body>
+        <div class="ctn room-seats-main clear">
+            <div class="left leftCtn subItem" data-uid="1" data-aposition="2">
+                <div class="emptyCtn"></div>
+                <img class="radios50" src="./static/img/avatar1.png" />
+                <div class="cpContainer" style="offset-path: path(&quot;M0,0 q0 0 0,0&quot;)">
+                    <img class="cpImg" src="https://asset.tuwan.com/cphead/room_cp_heart_icon_1226.png">
+                </div>
+            </div>
+            <div class="left rightCtn">
+                <div class="subItem" data-uid="2" data-aposition="3">
+                    <div class="emptyCtn"></div>
+                    <img class="radios50" src="./static/img/avatar1.png" />
+                    <div class="cpContainer" style="offset-path: path(&quot;M0,0 q0 0 0,0&quot;)">
+                        <img class="cpImg" src="https://asset.tuwan.com/cphead/room_cp_heart_icon_1226.png">
+                    </div>
+                </div>
+                <div class="subItem" data-uid="3" data-aposition="4">
+                    <div class="emptyCtn"></div>
+                    <img class="radios50" src="./static/img/avatar1.png" />
+                    <div class="cpContainer" style="offset-path: path(&quot;M0,0 q0 0 0,0&quot;)">
+                        <img class="cpImg" src="https://asset.tuwan.com/cphead/room_cp_heart_icon_1226.png">
+                    </div>
+                </div>
+                <div class="subItem" data-uid="4" data-aposition="5">
+                    <div class="emptyCtn"></div>
+                    <img class="radios50" src="./static/img/avatar1.png" />
+                    <div class="cpContainer" style="offset-path: path(&quot;M0,0 q0 0 0,0&quot;)">
+                        <img class="cpImg" src="https://asset.tuwan.com/cphead/room_cp_heart_icon_1226.png">
+                    </div>
+                </div>
+                <div class="subItem" data-uid="5" data-aposition="6">
+                    <div class="emptyCtn"></div>
+                    <img class="radios50" src="./static/img/avatar1.png" />
+                    <div class="cpContainer" style="offset-path: path(&quot;M0,0 q0 0 0,0&quot;)">
+                        <img class="cpImg" src="https://asset.tuwan.com/cphead/room_cp_heart_icon_1226.png">
+                    </div>
+                </div>
+                <div class="subItem" data-uid="6" data-aposition="7">
+                    <div class="emptyCtn"></div>
+                    <img class="radios50" src="./static/img/avatar1.png" />
+                    <div class="cpContainer" style="offset-path: path(&quot;M0,0 q0 0 0,0&quot;)">
+                        <img class="cpImg" src="https://asset.tuwan.com/cphead/room_cp_heart_icon_1226.png">
+                    </div>
+                </div>
+
+                <div class="subItem" data-uid="7" data-aposition="8">
+                    <div class="emptyCtn"></div>
+                    <img class="radios50" src="./static/img/avatar1.png" />
+                    <div class="cpContainer" style="offset-path: path(&quot;M0,0 q0 0 0,0&quot;)">
+                        <img class="cpImg" src="https://asset.tuwan.com/cphead/room_cp_heart_icon_1226.png">
+                    </div>
+                </div>
+                <div class="subItem" data-uid="8" data-aposition="9">
+                    <div class="emptyCtn"></div>
+                    <img class="radios50" src="./static/img/avatar1.png" />
+                    <div class="cpContainer" style="offset-path: path(&quot;M0,0 q0 0 0,0&quot;)">
+                        <img class="cpImg" src="https://asset.tuwan.com/cphead/room_cp_heart_icon_1226.png">
+                    </div>
+                </div>
+                <div class="subItem" data-uid="9" data-aposition="10">
+                    <div class="emptyCtn"></div>
+                    <img class="radios50" src="./static/img/avatar1.png" />
+                    <div class="cpContainer" style="offset-path: path(&quot;M0,0 q0 0 0,0&quot;)">
+                        <img class="cpImg" src="https://asset.tuwan.com/cphead/room_cp_heart_icon_1226.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <div class="testCtn">
+        <input type="text" id="value1"> 
+        <input type="text" id="value2">
+        <button id="btn">点我</button>
+    </div>
+
+    <script src="./static/js/jquery.js"></script>
+    <script src="./static/js/svga@2.3.1.min.js"></script>
+    <script>
+        let animationTime = 1250; // 心的轨迹动画的播放时间 轨迹完成 再播放烟花爆炸效果
+        let fireworksTime = 1000; // 烟花爆炸的动画时间
+        let hideHeartTime = 1480; // 心的轨迹动画结束前 把心删掉
+        let multipleActionFlag = false; // 是否播放多对一的动效  因为如果多对一 那多个人 同时下线，这一个人触发cp动效 就不用播放了
+        
+        $('#btn').click(() => {
+            let v1 = $('#value1').val().split(',');
+            let v2 = $('#value2').val().split(',');
+            triggerCpHead(v1, v2)
+        });
+        function triggerCpHead (start, end) {
+            
+            console.log('动效触发函数====')
+            console.log(start);
+            console.log(end);
+
+            let that = this;
+
+            // 一对一
+            if (start.length === 1 && end.length === 1) {
+                // 一对一的时候 如果有一个已经下麦了 就不用播放动画了
+                if ($(`.subItem[data-uid=${start[0]}]`).length == 0 || $(`.subItem[data-uid=${end[0]}]`).length == 0) {
+                    return false;
+                }
+                let startX = parseInt($(`.subItem[data-uid=${start[0]}]`).find('.cpContainer').css('left'));
+                let endX = parseInt($(`.subItem[data-uid=${end[0]}]`).find('.cpContainer').css('left'));
+                let startPositionDom = null;
+                let endPositionDom = null;
+                let startUid = '';
+                let endUid = '';
+                // 横向 按照从左到右
+                if (startX < endX) {
+                    startPositionDom = $(`.subItem[data-uid=${start[0]}]`).find('.cpContainer');
+                    endPositionDom = $(`.subItem[data-uid=${end[0]}]`).find('.cpContainer');
+                    startUid = start[0];
+                    endUid = end[0];
+                } else {
+                    startPositionDom = $(`.subItem[data-uid=${end[0]}]`).find('.cpContainer');
+                    endPositionDom = $(`.subItem[data-uid=${start[0]}]`).find('.cpContainer');
+                    startUid = end[0];
+                    endUid = start[0];
+                }
+                let startPositionX = parseInt(startPositionDom.css('left'));
+                let startPositionY = parseInt(startPositionDom.css('top'));
+
+                let endPositionX = parseInt(endPositionDom.css('left'));
+                let endPositionY = parseInt(endPositionDom.css('top'));
+                
+                let startIndex = $(`.subItem[data-uid=${start[0]}]`).attr('data-aposition');
+                let endIndex = $(`.subItem[data-uid=${end[0]}]`).attr('data-aposition');
+                // 第一行 同一行 第二行 同一行
+                if (
+                    (startIndex >= 3 && startIndex <= 6) && (endIndex >= 3 && endIndex <= 6) ||
+                    (startIndex >= 7 && startIndex <= 10) && (endIndex >= 7 && endIndex <= 10)
+                ) {
+                    let xValue = 0.2;
+                    let yValue = 0.9;
+                    let x = (endPositionX - startPositionX) / 2;
+                    let y = 80;
+                    // 第一行
+                    if (startIndex >= 3 && startIndex <= 6) {
+                        startPositionDom.css({
+                            "offset-path": `path('M 0,0 q${x * xValue},${y * yValue} ${x},${y}')`
+                        });
+                        endPositionDom.css({
+                            "offset-path": `path('M 0,0 q${-x * xValue},${y * yValue} ${-x},${y}')`
+                        });
+                    } else { // 第二行
+                        startPositionDom.css({
+                            "offset-path": `path('M 0,0 q${x * xValue},${-y * yValue} ${x},${-y}')`
+                        });
+                        endPositionDom.css({
+                            "offset-path": `path('M 0,0 q${-x * xValue},${-y * yValue} ${-x},${-y}')`
+                        });
+                    }
+                    startPositionDom.addClass('active');
+                    endPositionDom.addClass('active');
+
+                    setTimeout(() => {
+                        let x = startPositionX + (endPositionX - startPositionX) / 2;
+                        let y = (startIndex >= 3 && startIndex <= 6) ? startPositionY + 80 : startPositionY - 80;
+
+                        $('.room-seats-main').append(`<div class="fireworksCtn innerCtn" style="left: ${x}px; top: ${y}px; transform: translate(-50%, -80%);"></div`);
+                       
+                        let player = new SVGA.Player('.fireworksCtn');
+                        let parser = new SVGA.Parser('.fireworksCtn');
+                        parser.load('./static/gif/exploding_point_1226.svga', function(videoItem) {
+                            player.setVideoItem(videoItem);
+                            player.startAnimation();
+                        });
+
+                        setTimeout(() => {
+                            $('.fireworksCtn').remove();
+                        }, fireworksTime);
+                    }, animationTime);
+                    setTimeout(() => {
+                        $('.cpContainer').each(function(){
+                            $(this).removeClass('active');
+                        });
+                    }, hideHeartTime);
+                } else if (startIndex == 2) { // 有一个是主持人  因为已经按照x 从左往右排列了 所以左边的主持人就是 startIndex
+                    let xValue = 0.5;
+                    let yValue = 0.8;
+                    let x = (endPositionX - startPositionX) / 2;
+                    let y = (endPositionY - startPositionY) / 2;
+                    if (endIndex >= 3 && endIndex <= 6 ) { // 终点在上面的一行
+                        startPositionDom.css({
+                            "offset-path": `path('M 0,0 q${x * xValue},${-y * yValue} ${x},${y}')`
+                        });
+                        endPositionDom.css({
+                            "offset-path": `path('M 0,0 q${-x * xValue},${y * yValue} ${-x},${-y}')`
+                        });
+                    } else { // 终点在下面的一行
+                        startPositionDom.css({
+                            "offset-path": `path('M 0,0 q${x * xValue},${-y * yValue} ${x},${y}')`
+                        });
+                        endPositionDom.css({
+                            "offset-path": `path('M 0,0 q${-x * xValue},${y * yValue} ${-x},${-y}')`
+                        });
+                    }
+                    startPositionDom.addClass('active');
+                    endPositionDom.addClass('active');
+
+                    setTimeout(() => {
+                        let x = startPositionX + (endPositionX - startPositionX) / 2;
+                        let y = startPositionY + (endPositionY - startPositionY) / 2;
+
+                        $('.room-seats-main').append(`<div class="fireworksCtn innerCtn" style="left: ${x}px; top: ${y}px; transform: translate(-50%, -80%);"></div`);
+                        
+                        let player = new SVGA.Player('.fireworksCtn');
+                        let parser = new SVGA.Parser('.fireworksCtn');
+                        parser.load('./static/gif/exploding_point_1226.svga', function(videoItem) {
+                            player.setVideoItem(videoItem);
+                            player.startAnimation();
+                        });
+
+                        setTimeout(() => {
+                            $('.fireworksCtn').remove();
+                        }, fireworksTime);
+                    }, animationTime);
+                    setTimeout(() => {
+                        $('.cpContainer').each(function(){
+                            $(this).removeClass('active');
+                        });
+                    }, hideHeartTime);
+                } else { // 不是主持人的席位
+                    let xValue = 0.8;
+                    let yValue = 1;
+                    let x = (endPositionX - startPositionX) / 2;
+                    let y = (endPositionY - startPositionY) / 2;
+                    // 因为x的值有一点偏差 不是全部完全相等 所以差距在5以内 都算在同一列
+                    if (Math.abs(startPositionX - endPositionX) > 5) { // 不在同一列
+                        if (endPositionY > startPositionY) { // 往右下 移动
+                            startPositionDom.css({
+                                    "offset-path": `path('M 0,0 q${x * xValue},${y * yValue} ${x},${y}')`
+                                });
+                                endPositionDom.css({
+                                    "offset-path": `path('M 0,0 q${-x * xValue},${-y * yValue} ${-x},${-y}')`
+                                });
+                            } else if (endPositionY < startPositionY){ // 往左上 移动
+                                startPositionDom.css({
+                                    "offset-path": `path('M 0,0 q${x * xValue},${y * yValue} ${x},${y}')`
+                                });
+                                endPositionDom.css({
+                                    "offset-path": `path('M 0,0 q${-x * xValue},${-y * yValue} ${-x},${-y}')`
+                                });
+                            }
+                    } else { // 在同一列
+                        let xValue = 1;
+                        let yValue = 1;
+                        let spv = 50;
+                        if (endPositionY > startPositionY) { // 往下 移动
+                            startPositionDom.css({
+                                "offset-path": `path('M 0,0 q${-spv},${y * yValue} ${x},${y}')`
+                            });
+                            endPositionDom.css({
+                                "offset-path": `path('M 0,0 q${spv},${-y * yValue} ${-x},${-y}')`
+                            });
+                            } else if (endPositionY < startPositionY){ // 往上 移动
+                                startPositionDom.css({
+                                    "offset-path": `path('M 0,0 q${spv},${y * yValue} ${x},${y}')`
+                                });
+                                endPositionDom.css({
+                                    "offset-path": `path('M 0,0 q${-spv},${-y * yValue} ${-x},${-y}')`
+                                });
+                            }
+                    }
+                    
+                    startPositionDom.addClass('active');
+                    endPositionDom.addClass('active');
+
+                    setTimeout(() => {
+                        let x = startPositionX + (endPositionX - startPositionX) / 2;
+                        let y = startPositionY + (endPositionY - startPositionY) / 2;
+
+                        $('.room-seats-main').append(`<div class="fireworksCtn innerCtn" style="left: ${x}px; top: ${y}px; transform: translate(-50%, -80%);"></div`);
+                       
+                        let player = new SVGA.Player('.fireworksCtn');
+                        let parser = new SVGA.Parser('.fireworksCtn');
+                        parser.load('./static/gif/exploding_point_1226.svga', function(videoItem) {
+                            player.setVideoItem(videoItem);
+                            player.startAnimation();
+                        });
+
+                        setTimeout(() => {
+                            $('.fireworksCtn').remove();
+                        }, fireworksTime);
+                    }, animationTime);
+                    setTimeout(() => {
+                        $('.cpContainer').each(function(){
+                            $(this).removeClass('active');
+                        });
+                    }, hideHeartTime);
+                }
+            }
+            // 一对多
+            if (start.length === 1 && end.length > 1) {
+                let startPositionDom = $(`.subItem[data-uid=${start[0]}]`).find('.cpContainer');
+                let startPositionX = parseInt(startPositionDom.css('left'));
+                let startPositionY = parseInt(startPositionDom.css('top'));
+                let tempDom = $(`.subItem[data-uid=${start[0]}]`).find('.cpContainer');
+
+                let playerArr = new Array(9).fill(0);
+                let parserArr = new Array(9).fill(0);
+                let i = 0;
+
+                end.forEach((endUid, i) => {
+                    // 多个人里 谁下麦了 就不用播放他的动效
+                    if (!$(`.subItem[data-uid=${endUid}]`).length) {
+                        return false;
+                    }
+                    multipleActionFlag = true; // 这多个里面 只要有一个在 就可以触发动效
+                    let cloneDom = tempDom.clone();
+                    let endPositionDom = $(`.subItem[data-uid=${endUid}]`).find('.cpContainer');
+                    let endPositionX = parseInt(endPositionDom.css('left'));
+                    let endPositionY = parseInt(endPositionDom.css('top'));
+                    let x = endPositionX - startPositionX;
+                    let y = endPositionY - startPositionY;
+                    cloneDom.css({
+                        "offset-path": `path('M 0,0 L ${x},${y}')`
+                    });
+                    cloneDom.addClass('active');
+                    cloneDom.addClass('canRemove');
+                    cloneDom.attr('data-uid', endUid);
+                    $(`.subItem[data-uid=${start[0]}]`).append(cloneDom);
+                    setTimeout(() => {
+                        let specialClass = `fireworksCtn-${endUid}`;
+                        $(`.subItem[data-uid=${endUid}]`).find('.emptyCtn').append(`<div class="fireworksCtn innerCtn ${specialClass}" id="${specialClass}"></div`);
+                        
+                            console.log('specialClass===' + specialClass);
+                            console.log('i==' + i);
+
+                        player = new SVGA.Player('.fireworksCtn-' + endUid);
+                        parser = new SVGA.Parser('.fireworksCtn-' + endUid);
+
+                        parser.load('./static/gif/exploding_point_1226.svga', function(videoItem) {
+                            player.setVideoItem(videoItem);
+                            parser.startAnimation();
+                        });
+
+                        // let player2 = new SVGA.Player('.fireworksCtn-3');
+                        // let parser2 = new SVGA.Parser('.fireworksCtn-3');
+                        // parser2.load('./static/gif/exploding_point_1226.svga', function(videoItem) {
+                        //     player2.setVideoItem(videoItem);
+                        //     player2.startAnimation();
+                        // });
+
+                        setTimeout(() => {
+                            // $('.fireworksCtn').remove();
+                        }, fireworksTime);
+                    }, animationTime);
+                });
+
+                // 动效播放完毕后 隐藏 小心心
+                setTimeout(() => {
+                    $('.canRemove').remove();
+                    $('.cpContainer').each(function(){
+                        $(this).removeClass('active');
+                        multipleActionFlag = false; // 播放完 恢复初始值
+                    });
+                }, hideHeartTime);
+            }
+            // 多对一
+            if (start.length > 1 && end.length === 1) {
+                // 如果这个一 下麦了 那就不用触发动效了
+                let endPositionDom = $(`.subItem[data-uid=${end[0]}]`).find('.cpContainer');
+                let endPositionX = parseInt(endPositionDom.css('left'));
+                let endPositionY = parseInt(endPositionDom.css('top'));
+                $('.subItem').each(function(){
+                    let current = $(this);
+                    let uid = this.dataset.uid;
+                    if (start.indexOf(uid) > -1) {
+                        console.log('uid =' + uid);
+                        multipleActionFlag = true; // 这多个里面 只要有一个在 就可以触发动效
+                        let startPositionDom = current.find('.cpContainer');
+                        let startPositionX = parseInt(startPositionDom.css('left'));
+                        let startPositionY = parseInt(startPositionDom.css('top'));
+                        let x = endPositionX - startPositionX;
+                        let y = endPositionY - startPositionY;
+                        current.find('.cpContainer').css({
+                            "offset-path": `path('M 0,0 L ${x},${y}')`
+                        });
+                        current.find('.cpContainer').addClass('active');
+                    }
+                });
+                setTimeout(() => {
+                    let specialClass = `fireworksCtn-${end[0]}`;
+                    $(`.subItem[data-uid=${end[0]}]`).find('.emptyCtn').append(`<div class="fireworksCtn innerCtn ${specialClass}"></div`);
+                    
+                    let player = new SVGA.Player('.fireworksCtn');
+                    let parser = new SVGA.Parser('.fireworksCtn');
+                    parser.load('./static/gif/exploding_point_1226.svga', function(videoItem) {
+                        player.setVideoItem(videoItem);
+                        player.startAnimation();
+                    });
+                    setTimeout(() => {
+                        $('.fireworksCtn').remove();
+                    }, fireworksTime);
+                }, animationTime);
+                // 动效播放完毕后 隐藏 小心心
+                setTimeout(() => {
+                    $('.cpContainer').each(function(){
+                        $(this).removeClass('active');
+                        // multipleActionFlag = false;
+                    });
+                }, hideHeartTime);
+            }
+        }
+    </script>
+</html>

@@ -484,13 +484,26 @@
                             console.log('specialClass===' + specialClass);
                             console.log('i==' + i);
 
-                        player = new SVGA.Player('.fireworksCtn-' + endUid);
-                        parser = new SVGA.Parser('.fireworksCtn-' + endUid);
+                            let player = new window.SVGA.Player('.fireworksCtn-' + endUid);
+                            let parser = new window.SVGA.Parser('.fireworksCtn-' + endUid);
 
-                        parser.load('./static/gif/exploding_point_1226.svga', function(videoItem) {
-                            player.setVideoItem(videoItem);
-                            parser.startAnimation();
-                        });
+                            player.clearsAfterStop = true;
+                            player.fillMode = 'Forward';
+                            player.loops = 1;
+                            // parser.load('https://asset.tuwan.com/cphead/exploding_point_1228_new.svga', (videoItem) => {
+                            parser.load('./static/gif/exploding_point_1226.svga', (videoItem) => {
+                                player.setVideoItem(videoItem);
+                                player.startAnimation();
+                            });
+
+
+                        // player = new SVGA.Player('.fireworksCtn-' + endUid);
+                        // parser = new SVGA.Parser('.fireworksCtn-' + endUid);
+
+                        // parser.load('./static/gif/exploding_point_1226.svga', function(videoItem) {
+                        //     player.setVideoItem(videoItem);
+                        //     parser.startAnimation();
+                        // });
 
                         // let player2 = new SVGA.Player('.fireworksCtn-3');
                         // let parser2 = new SVGA.Parser('.fireworksCtn-3');

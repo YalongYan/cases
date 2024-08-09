@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Recorder and MP3 Converter</title>
+</head>
+<body>
+  <h1>Audio Recorder and MP3 Converter</h1>
+  <button id="startRecord">Start Recording</button>
+  <button id="stopRecord" disabled>Stop Recording</button>
+  <audio id="audioPlayback" controls></audio>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.0/lame.min.js"></script>
+  <script>
+    let audioContext;
+    let mediaRecorder;
+    let audioChunks = [];
+
+    const startRecordButton = document.getElementById('startRecord');
+    const stopRecordButton = document.getElementById('stopRecord');
+    const audioPlayback = document.getElementById('audioPlayback');
+
+    startRecordButton.addEventListener('click', async () => {
+      startRecordButton.disabled = true;
+      stopRecordButton.disabled = false;
+
+      // 初始化 AudioContext
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.ondataavailable = (event) => {
+        audioChunks.push(event.data);
+      };
+      
+      mediaRecorder.onstop = async () => {
+        const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+        const arrayBuffer = await audioBlob.arrayBuffer();
+        const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+
+        // 获取 PCM 数据
+        const pcmData = audioBuffer.getChannelData(0);
+
+        // 将浮点 PCM 数据转换为 16 位整型 PCM 数据
+        const pcmInt16Data = new Int16Array(pcmData.length);
+        for (let i = 0; i < pcmData.length; i++) {
+          pcmInt16Data[i] = Math.max(-1, Math.min(1, pcmData[i])) * 0x7FFF;
+        }
+
+        // 创建 PCM 文件 Blob; pcmBlob 这个文件可以作为文件上传到服务器
+        const pcmBlob = new Blob([pcmInt16Data.buffer], { type: 'audio/pcm' });
+
+        // 下载 PCM 文件
+        downloadBlob(pcmBlob, 'recording.pcm');
+
+        // 使用 lamejs 编码为 MP3
+        const mp3Blob = convertToMp3(pcmInt16Data, audioBuffer.sampleRate);
+        
+        // 播放 MP3 文件
+        const mp3Url = URL.createObjectURL(mp3Blob);
+        audioPlayback.src = mp3Url;
+      };
+
+      mediaRecorder.start();
+    });
+
+    stopRecordButton.addEventListener('click', () => {
+      startRecordButton.disabled = false;
+      stopRecordButton.disabled = true;
+      mediaRecorder.stop();
+    });
+
+    function convertToMp3(pcmData, sampleRate) {
+      const mp3Encoder = new lamejs.Mp3Encoder(1, sampleRate, 128);
+      const mp3Data = [];
+      const samplesPerFrame = 1152;
+      for (let i = 0; i < pcmData.length; i += samplesPerFrame) {
+        const sampleChunk = pcmData.subarray(i, i + samplesPerFrame);
+        const mp3buf = mp3Encoder.encodeBuffer(sampleChunk);
+        if (mp3buf.length > 0) {
+          mp3Data.push(mp3buf);
+        }
+      }
+      const endBuf = mp3Encoder.flush();
+      if (endBuf.length > 0) {
+        mp3Data.push(endBuf);
+      }
+
+      return new Blob(mp3Data, { type: 'audio/mp3' });
+    }
+
+    function downloadBlob(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
